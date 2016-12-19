@@ -19,7 +19,7 @@ def getModel():
 
     decoder = Sequential()
     decoder.add(Merge(encoders, mode='concat'))
-    #decoder.add(LSTM(64, return_sequences=True))
+    decoder.add(LSTM(64, return_sequences=True))
     decoder.add(LSTM(64))
     #decoder.add(TimeDistributed(Dense(64)))
     decoder.add(Dropout(0.5))
