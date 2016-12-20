@@ -63,23 +63,7 @@ We are trying to predict **US Goverment Bond Yield 10 Years**'s change in next d
 
 ## Results
 
-loss: 1.1371 - acc: 0.2900 - val_loss: 0.8221 - val_acc: 0.4757
 
-loss: 0.8364 - acc: 0.5281 - val_loss: 0.7361 - val_acc: 0.5243
+![alt](results.png)
 
-loss: 0.7860 - acc: 0.4675 - val_loss: 0.7261 - val_acc: 0.4757
-
-loss: 0.7519 - acc: 0.4978 - val_loss: 0.7111 - val_acc: 0.4757
-
-loss: 0.7466 - acc: 0.5281 - val_loss: 0.7057 - val_acc: 0.4757
-
-loss: 0.7528 - acc: 0.5195 - val_loss: 0.7068 - val_acc: 0.4757
-
-loss: 0.7528 - acc: 0.4632 - val_loss: 0.7027 - val_acc: 0.4757
-
-loss: 0.7662 - acc: 0.4589 - val_loss: 0.7019 - val_acc: 0.4757
-
-loss: 0.7532 - acc: 0.5065 - val_loss: 0.7053 - val_acc: 0.4757
-
-loss: 0.7395 - acc: 0.5455 - val_loss: 0.6992 - val_acc: 0.4757
-
+[Results in CSV file](results.csv)
