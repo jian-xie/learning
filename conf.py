@@ -7,7 +7,8 @@ VAL_TO = 29.5 * 365
 ROLLWINDOW = 1 * 365
 
 XOUT_DIM = 64
-
+BATCH_SIZE = 128
+BATCH_INDEX = 0
 
 
 Y = ['GT10 Govt']
