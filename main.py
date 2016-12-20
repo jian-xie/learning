@@ -13,7 +13,7 @@ if __name__ == '__main__':
     val_Xs, val_Y = getTrainData(ndf, df[Y], VAL_FROM,VAL_TO, ROLLWINDOW)
     model = getModel()
 
-    res = model.fit(train_Xs, train_Y, batch_size=256, nb_epoch=20, validation_data=(val_Xs, val_Y))
+    res = model.fit(train_Xs, train_Y, batch_size=256, nb_epoch=100, validation_data=(val_Xs, val_Y))
 
     '''
     results = []

@@ -1,5 +1,5 @@
 
-DATAFREQ = 30#days
+DATAFREQ = 7#days
 TRAIN_FROM = 0 * 365
 TRAIN_TO = 20 * 365
 VAL_FROM = 20 * 365
