@@ -1,4 +1,4 @@
-from conf import DATAFREQ, Y, XS
+from conf import DATAFREQ, Y, XS, BATCH_SIZE
 from data_load import getData,prepareData,normaliz
 import numpy as np
 
@@ -8,7 +8,7 @@ def getTrainData(df, dfY, fromD, toD, rollingwindow):
     frw = int(rollingwindow / DATAFREQ)
     train_Xs, train_Y = [],[]
     for cols in XS:
-        train_Xs.append(np.array([df[i + ffr:i + ffr + frw].as_matrix(cols) for i in range(fto - ffr - frw)]))
+        train_Xs.append([df[i + ffr:i + ffr + frw].as_matrix(cols) for i in range(fto - ffr - frw)])
     for i in range(fto - ffr - frw):
 
         _Y = dfY.iloc[i+ffr+frw][0]
@@ -31,7 +31,15 @@ def getTrainData(df, dfY, fromD, toD, rollingwindow):
             train_Y.append([1, 0, 0, 0, 0])
         '''
     #train_Y = np.array([dfY.iloc[i+ffr+frw] for i in range(fto - ffr - frw)])
-    return train_Xs, np.array(train_Y)
+    # add duplicated sample to fill a batch size
+    nfill = BATCH_SIZE - len(train_Y) % BATCH_SIZE
+    for n in range(nfill % BATCH_SIZE):
+        for i in range(len(train_Xs)):
+            train_Xs[i].append(train_Xs[i][-1])
+        train_Y.append(train_Y[-1])
+
+    return [np.array(train_Xs[i]) for i in range(len(train_Xs))], np.array(train_Y)
+
 
 
 if __name__ == '__main__':

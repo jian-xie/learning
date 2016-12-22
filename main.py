@@ -7,13 +7,14 @@ from results import ResAnaysis
 if __name__ == '__main__':
     strFrq = {30: 'M', 7: 'W', 1: 'D'}
     df = getData(strFrq[DATAFREQ])
-    df = prepareData(df)
+    #df = prepareData(df)
     ndf = normaliz(df)
-    train_Xs, train_Y = getTrainData(ndf, df[Y],TRAIN_FROM, TRAIN_TO, ROLLWINDOW)
-    val_Xs, val_Y = getTrainData(ndf, df[Y], VAL_FROM,VAL_TO, ROLLWINDOW)
+    dfY_diff = df[Y].diff()
+    train_Xs, train_Y = getTrainData(ndf, dfY_diff,TRAIN_FROM, TRAIN_TO, ROLLWINDOW)
+    val_Xs, val_Y = getTrainData(ndf, dfY_diff, VAL_FROM,VAL_TO, ROLLWINDOW)
     model = getModel()
 
-    res = model.fit(train_Xs, train_Y, batch_size=256, nb_epoch=100, validation_data=(val_Xs, val_Y))
+    res = model.fit(train_Xs, train_Y, batch_size=BATCH_SIZE, nb_epoch=40, validation_data=(val_Xs, val_Y))
 
     '''
     results = []
