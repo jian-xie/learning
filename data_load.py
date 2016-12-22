@@ -1,11 +1,12 @@
 import pickle
 import pandas as pd
-from conf import DATAFMT, DATAFREQ
 
 from sklearn import preprocessing
 
 STARTDATE='1986-12-01'
 ENDDATE='2016-12-31'
+
+global C
 
 def loadExcel():
     dfs = []
@@ -39,9 +40,9 @@ def getData(Frq):
 def prepareData(df):
     #shift data outright value to change or percentage change
 
-    pdf1 = df[DATAFMT['pct_change']].pct_change()
-    pdf2 = df[DATAFMT['diff']].diff()
-    pdf3 = df[DATAFMT['value']]
+    pdf1 = df[C.DATAFMT['pct_change']].pct_change()
+    pdf2 = df[C.DATAFMT['diff']].diff()
+    pdf3 = df[C.DATAFMT['value']]
 
     mdf = pd.concat([pdf1,pdf2,pdf3], axis=1)[1:]
     return mdf
@@ -53,7 +54,7 @@ def normaliz(df):
 
 if __name__ == '__main__':
     strFrq = {30:'M',7:'W',1:'D'}
-    df = getData(strFrq[DATAFREQ])
+    df = getData(C.STRFRQ[C.DATAFREQ])
     df = prepareData(df)
     df = normaliz(df)
     print(df)

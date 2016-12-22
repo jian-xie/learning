@@ -2,19 +2,18 @@ from keras.models import Sequential
 from keras.layers import Merge, LSTM, Dense, Dropout, TimeDistributed
 from keras.optimizers import SGD
 import numpy as np
-from conf import ROLLWINDOW, DATAFREQ, XS, XOUT_DIM, BATCH_SIZE
 
-def getModel():
+def getModel(C):
 
-    timesteps = int(ROLLWINDOW/DATAFREQ)
+    timesteps = int(C.ROLLWINDOW/C.DATAFREQ)
     nb_classes = 3
 
     encoders = []
 
-    for x in XS:
+    for x in C.XS:
         encoder = Sequential()
         data_dim = len(x)
-        encoder.add(LSTM(XOUT_DIM, return_sequences=True, stateful=True, batch_input_shape=(BATCH_SIZE, timesteps, data_dim)))
+        encoder.add(LSTM(C.XOUT_DIM, return_sequences=True, stateful=True, batch_input_shape=(C.BATCH_SIZE, timesteps, data_dim)))
         encoders.append(encoder)
 
     decoder = Sequential()
