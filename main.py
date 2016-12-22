@@ -4,13 +4,14 @@ from scenario import SCENARIOS
 from model import getModel
 from data_load import getData, prepareData, normaliz
 from train_data import getTrainData
-from results import ResAnaysis
+from resana import ResAnaysis
 
 if __name__ == '__main__':
     global C
     C = Conf()
-    for conf in SCENARIOS:
-        C.overwrite(conf['conf'])
+    res = {}
+    for sn in SCENARIOS:
+        C.overwrite(sn)
 
         df = getData(C.STRFRQ[C.DATAFREQ])
         #df = prepareData(df)
@@ -20,8 +21,8 @@ if __name__ == '__main__':
         val_Xs, val_Y = getTrainData(C,ndf, dfY_diff)
         model = getModel(C)
 
-        res = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=40, validation_data=(val_Xs, val_Y))
+        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=60, validation_data=(val_Xs, val_Y))
+        res.update({C.SCENARIO:re.history})
 
-
-    ResAnaysis(res.history)
+    ResAnaysis(res)
 

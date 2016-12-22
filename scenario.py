@@ -1,4 +1,6 @@
 SCENARIOS = [
+    {'SCENARIO': 'Base'},
+
     {'SCENARIO':'- Economic data',
      'XS':[['USDGBP Curncy', 'GTGBP2Y Govt', 'GTGBP5Y Govt','GTGBP10Y Govt'],
         ['USDEUR Curncy', 'GTEUR2Y Govt', 'GTEUR5Y Govt', 'GTEUR10Y Govt','SX5E Index'],
@@ -72,5 +74,5 @@ SCENARIOS = [
              'EHPIAU Index', 'AS51 Index'],
             ['GT2 Govt', 'GT5 Govt', 'GT10 Govt', 'EHUPUS Index', 'EHGDUS Index', 'EHPIUS Index', 'SPX Index',
              'CONSUEXR Index', 'NFP TYOY Index', 'CONSPXMD Index']]
-     },
+     }
 ]

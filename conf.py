@@ -47,6 +47,6 @@ class Conf:
 
     }
 
-    def overwrite(self,oconf):
-        for key in oconf:
-            setattr(self,key,oconf[key])
+    def overwrite(self,sn):
+        for key in sn:
+            setattr(self,key,sn[key])
