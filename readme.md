@@ -66,9 +66,9 @@ We are trying to predict **US Goverment Bond Yield 10 Years**'s change in next d
 
 [Results in Excel file](results/results.xlsx)
 
-Base ![](results/Base.png)
+Base: ![](results/Base.png)
 
--Economic_data ![](results/-Economic_data.png)
+-Economic_data: ![](results/-Economic_data.png)
 
 -GBP ![](results/-GBP.png)
 

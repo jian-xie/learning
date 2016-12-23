@@ -21,7 +21,7 @@ if __name__ == '__main__':
         val_Xs, val_Y = getTrainData(C,ndf, dfY_diff,'test')
         model = getModel(C)
 
-        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=60, validation_data=(val_Xs, val_Y))
+        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=30, validation_data=(val_Xs, val_Y))
         res.append([C.SCENARIO,re.history])
 
     ResAnaysis(res)

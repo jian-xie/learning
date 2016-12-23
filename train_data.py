@@ -8,6 +8,8 @@ def getTrainData(C,df, dfY, type='train'):
         fromD, toD = C.VAL_FROM, C.VAL_TO
     ffr = int(fromD / C.DATAFREQ)
     fto = int(toD / C.DATAFREQ)
+    if fto >= len(dfY):
+        fto = len(dfY)-1
     frw = int(C.ROLLWINDOW / C.DATAFREQ)
     train_Xs, train_Y = [],[]
     for cols in C.XS:
@@ -35,11 +37,12 @@ def getTrainData(C,df, dfY, type='train'):
         '''
     #train_Y = np.array([dfY.iloc[i+ffr+frw] for i in range(fto - ffr - frw)])
     # add duplicated sample to fill a batch size
-    nfill = C.BATCH_SIZE - len(train_Y) % C.BATCH_SIZE
-    for n in range(nfill % C.BATCH_SIZE):
+    nfill = (C.BATCH_SIZE - len(train_Y) % C.BATCH_SIZE) % C.BATCH_SIZE
+    for n in range(nfill):
         for i in range(len(train_Xs)):
-            train_Xs[i].append(train_Xs[i][-1])
-        train_Y.append(train_Y[-1])
+            train_Xs[i].append(train_Xs[i][-nfill])
+        train_Y.append(train_Y[-nfill])
+    print(type+' sample size fill: '+str(nfill))
 
     return [np.array(train_Xs[i]) for i in range(len(train_Xs))], np.array(train_Y)
 

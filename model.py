@@ -18,11 +18,12 @@ def getModel(C):
 
     decoder = Sequential()
     decoder.add(Merge(encoders, mode='concat'))
-    decoder.add(LSTM(128, stateful=True, return_sequences=True))
-    decoder.add(LSTM(128, stateful=True))
-    #decoder.add(TimeDistributed(Dense(64)))
     decoder.add(Dropout(0.5))
-    decoder.add(Dense(128, activation='tanh'))
+    decoder.add(LSTM(48, stateful=True, return_sequences=True))
+    decoder.add(LSTM(96, stateful=True))
+    #decoder.add(TimeDistributed(Dense(64)))
+
+    decoder.add(Dense(96, activation='tanh'))
     decoder.add(Dense(nb_classes, activation='softmax'))
 
 
