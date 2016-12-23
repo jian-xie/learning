@@ -1,11 +1,14 @@
 from data_load import getData,prepareData,normaliz
 import numpy as np
 
-def getTrainData(C,df, dfY):
-    fromD, toD, rollingwindow = C.TRAIN_FROM, C.TRAIN_TO, C.ROLLWINDOW
+def getTrainData(C,df, dfY, type='train'):
+    if type == 'train':
+        fromD, toD = C.TRAIN_FROM, C.TRAIN_TO
+    else:
+        fromD, toD = C.VAL_FROM, C.VAL_TO
     ffr = int(fromD / C.DATAFREQ)
     fto = int(toD / C.DATAFREQ)
-    frw = int(rollingwindow / C.DATAFREQ)
+    frw = int(C.ROLLWINDOW / C.DATAFREQ)
     train_Xs, train_Y = [],[]
     for cols in C.XS:
         train_Xs.append([df[i + ffr:i + ffr + frw].as_matrix(cols) for i in range(fto - ffr - frw)])

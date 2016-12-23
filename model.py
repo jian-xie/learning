@@ -21,7 +21,7 @@ def getModel(C):
     decoder.add(LSTM(128, stateful=True, return_sequences=True))
     decoder.add(LSTM(128, stateful=True))
     #decoder.add(TimeDistributed(Dense(64)))
-    #decoder.add(Dropout(0.5))
+    decoder.add(Dropout(0.5))
     decoder.add(Dense(128, activation='tanh'))
     decoder.add(Dense(nb_classes, activation='softmax'))
 

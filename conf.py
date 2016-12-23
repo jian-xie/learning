@@ -6,7 +6,7 @@ class Conf:
     TRAIN_TO = 20 * 365
     VAL_FROM = 20 * 365
     VAL_TO = 29.5 * 365
-    ROLLWINDOW = 1 * 365
+    ROLLWINDOW = 0.5 * 365
 
     XOUT_DIM = 64
     BATCH_SIZE = 128
