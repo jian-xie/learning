@@ -8,7 +8,7 @@ class Conf:
     VAL_TO = 30 * 365
     ROLLWINDOW = 9 * 365
 
-    XOUT_DIM = 48
+    XOUT_DIM = 32
     BATCH_SIZE = 64
     BATCH_INDEX = 0
 

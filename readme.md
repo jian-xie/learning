@@ -66,16 +66,12 @@ We are trying to predict **US Goverment Bond Yield 10 Years**'s change in next d
 
 [Results in Excel file](results/results.xlsx)
 
-Base: ![](results/Base.png)
+Base ![](results/Base.png)
 
--Economic_data: ![](results/-Economic_data.png)
+exclude_Eco_data ![](results/exclude_Eco_data.png)
 
--GBP ![](results/-GBP.png)
+exclude_GBP ![](results/exclude_GBP.png)
 
--EUR ![](results/-EUR.png)
+exclude_EUR ![](results/exclude_EUR.png)
 
--JPY ![](results/-JPY.png)
-
--AUD ![](results/-AUD.png)
-
--CAD ![](results/-CAD.png)
+exclude_JPY ![](results/exclude_JPY.png)

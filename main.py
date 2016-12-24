@@ -10,18 +10,18 @@ if __name__ == '__main__':
     global C
     C = Conf()
     res = []
+    df = getData(C.STRFRQ[C.DATAFREQ])
+    # df = prepareData(df)
+    ndf = normaliz(df)
+    dfY_diff = df[C.Y].diff()
     for sn in SCENARIOS:
         C.overwrite(sn)
 
-        df = getData(C.STRFRQ[C.DATAFREQ])
-        #df = prepareData(df)
-        ndf = normaliz(df)
-        dfY_diff = df[C.Y].diff()
         train_Xs, train_Y = getTrainData(C,ndf, dfY_diff)
         val_Xs, val_Y = getTrainData(C,ndf, dfY_diff,'test')
         model = getModel(C)
 
-        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=30, validation_data=(val_Xs, val_Y))
+        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=40, validation_data=(val_Xs, val_Y))
         res.append([C.SCENARIO,re.history])
 
     ResAnaysis(res)

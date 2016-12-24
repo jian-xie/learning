@@ -48,7 +48,11 @@ SCENARIOS = [
              'EHPICA Index', 'SPTSX60 Index'],
             ['GT2 Govt', 'GT5 Govt', 'GT10 Govt', 'EHUPUS Index', 'EHGDUS Index', 'EHPIUS Index', 'SPX Index',
              'CONSUEXR Index', 'NFP TYOY Index', 'CONSPXMD Index']]
-     },
+     }
+]
+
+"""
+,
 
     {'SCENARIO': 'exclude_AUD',
      'XS': [['USDGBP Curncy', 'GTGBP2Y Govt', 'GTGBP5Y Govt', 'GTGBP10Y Govt', 'EHUPGB Index', 'EHGDGB Index',
@@ -75,4 +79,4 @@ SCENARIOS = [
             ['GT2 Govt', 'GT5 Govt', 'GT10 Govt', 'EHUPUS Index', 'EHGDUS Index', 'EHPIUS Index', 'SPX Index',
              'CONSUEXR Index', 'NFP TYOY Index', 'CONSPXMD Index']]
      }
-]
+"""
