@@ -3,10 +3,10 @@ class Conf:
     STRFRQ = {30: 'M', 7: 'W', 1: 'D'}
     DATAFREQ = 7#days
     TRAIN_FROM = 0 * 365
-    TRAIN_TO = 25.1 * 365
-    VAL_FROM = 16.1 * 365
+    TRAIN_TO = 22.66 * 365
+    VAL_FROM = 17.66 * 365
     VAL_TO = 30 * 365
-    ROLLWINDOW = 9 * 365
+    ROLLWINDOW = 5 * 365
 
     XOUT_DIM = 32
     BATCH_SIZE = 64
