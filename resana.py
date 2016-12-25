@@ -8,7 +8,7 @@ def ResAnaysis(results):
         df = pd.DataFrame(res[1])
         df.to_excel(writer,scenario)
 
-        cdf = pd.DataFrame({'Base':results[0][1]['val_acc'],scenario:res[1]['val_acc']})
+        cdf = pd.DataFrame({'Base':results[0][1]['val_loss'],scenario:res[1]['val_loss']})
         ax = cdf.plot()
         fig = ax.get_figure()
         pngfile = 'results/'+scenario+'.png'

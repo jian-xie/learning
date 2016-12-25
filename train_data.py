@@ -8,21 +8,24 @@ def getTrainData(C,df, dfY, type='train'):
         fromD, toD = C.VAL_FROM, C.VAL_TO
     ffr = int(fromD / C.DATAFREQ)
     fto = int(toD / C.DATAFREQ)
-    if fto >= len(dfY):
-        fto = len(dfY)-1
+    lag = int(C.LAG / C.DATAFREQ)
+    if fto + lag >= len(dfY):
+        fto = len(dfY)-1-lag
     frw = int(C.ROLLWINDOW / C.DATAFREQ)
+
     train_Xs, train_Y = [],[]
     for cols in C.XS:
         train_Xs.append([df[i + ffr:i + ffr + frw].as_matrix(cols) for i in range(fto - ffr - frw)])
     for i in range(fto - ffr - frw):
 
-        _Y = dfY.iloc[i+ffr+frw][0]
+        _Y = dfY.iloc[i+ffr+frw+lag][0]
         Y = [0,1,0]
         if _Y > 0:
             Y = [0,0,1]
         elif _Y < 0:
             Y = [1,0,0]
-        train_Y.append(Y)
+        #train_Y.append(Y)
+        train_Y.append(_Y)
         '''
         if _Y >= dfY[dfY>0].mean()[0]:
             train_Y.append([0,0,0,0,1])

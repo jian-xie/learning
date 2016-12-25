@@ -1,6 +1,12 @@
 SCENARIOS = [
     {'SCENARIO': 'Base'},
 
+    {'SCENARIO': 'Lag_1m_Y','LAG':1*30},
+
+    {'SCENARIO': 'Lag_3m_Y','LAG':3*30},
+
+    {'SCENARIO': 'Lag_12m_Y','LAG':12*30},
+
     {'SCENARIO':'exclude_Eco_data',
      'XS':[['USDGBP Curncy', 'GTGBP2Y Govt', 'GTGBP5Y Govt','GTGBP10Y Govt'],
         ['USDEUR Curncy', 'GTEUR2Y Govt', 'GTEUR5Y Govt', 'GTEUR10Y Govt','SX5E Index'],
@@ -48,11 +54,7 @@ SCENARIOS = [
              'EHPICA Index', 'SPTSX60 Index'],
             ['GT2 Govt', 'GT5 Govt', 'GT10 Govt', 'EHUPUS Index', 'EHGDUS Index', 'EHPIUS Index', 'SPX Index',
              'CONSUEXR Index', 'NFP TYOY Index', 'CONSPXMD Index']]
-     }
-]
-
-"""
-,
+     },
 
     {'SCENARIO': 'exclude_AUD',
      'XS': [['USDGBP Curncy', 'GTGBP2Y Govt', 'GTGBP5Y Govt', 'GTGBP10Y Govt', 'EHUPGB Index', 'EHGDGB Index',
@@ -79,4 +81,4 @@ SCENARIOS = [
             ['GT2 Govt', 'GT5 Govt', 'GT10 Govt', 'EHUPUS Index', 'EHGDUS Index', 'EHPIUS Index', 'SPX Index',
              'CONSUEXR Index', 'NFP TYOY Index', 'CONSPXMD Index']]
      }
-"""
+]
