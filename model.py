@@ -5,12 +5,17 @@ import numpy as np
 
 def getModel(C):
 
-    timesteps = int(C.ROLLWINDOW/C.DATAFREQ)
     nb_classes = 1
-
     encoders = []
 
     for x in C.XS:
+        timesteps = int(C.ROLLWINDOW / C.DATAFREQ)
+        if x == C.Y:
+            if C.Y_IN_X > 0:
+                timesteps = C.Y_IN_X
+            else:
+                continue
+
         encoder = Sequential()
         Data_dim = len(x)
         encoder.add(LSTM(output_dim=C.XOUT_DIM, return_sequences=True, stateful=True, batch_input_shape=(C.BATCH_SIZE, timesteps, Data_dim)))

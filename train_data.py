@@ -12,10 +12,16 @@ def getTrainData(C,df, dfY, type='train'):
     if fto + lag >= len(dfY):
         fto = len(dfY)-1-lag
     frw = int(C.ROLLWINDOW / C.DATAFREQ)
-
     train_Xs, train_Y = [],[]
     for cols in C.XS:
+
+        if cols == C.Y:
+            if C.Y_IN_X > 0:
+                train_Xs.append([df[i + ffr:i + ffr + C.Y_IN_X].as_matrix(cols) for i in range(fto - ffr - frw)])
+            continue
         train_Xs.append([df[i + ffr:i + ffr + frw].as_matrix(cols) for i in range(fto - ffr - frw)])
+
+
     for i in range(fto - ffr - frw):
 
         _Y = dfY.iloc[i+ffr+frw+lag][0]

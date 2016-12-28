@@ -2,8 +2,8 @@ import pandas as pd
 
 def ResAnaysis(results):
     writer = pd.ExcelWriter('results/results.xlsx')
-    mdtext = """\n## Results\n\n[Results in Excel file](results/results.xlsx)\n"""
-    for res in results:
+    mdtext = """\n## Results\n\n[Results in Excel file](results/results.xlsx)\n\nBase ![](results/Base.png)"""
+    for res in (r for r in results if r[0] != 'Base'):
         scenario = res[0]
         df = pd.DataFrame(res[1])
         df.to_excel(writer,scenario)
