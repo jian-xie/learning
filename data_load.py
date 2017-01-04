@@ -48,8 +48,8 @@ def prepareData(df):
     return mdf
 
 def normaliz(df):
-    min_max_scaler = preprocessing.MinMaxScaler()
-    df_normalized = df.apply(lambda x: min_max_scaler.fit_transform(x))
+    scaler = preprocessing.MinMaxScaler()
+    df_normalized = df.apply(lambda x: scaler.fit_transform(x))
     return df_normalized
 
 if __name__ == '__main__':

@@ -12,7 +12,7 @@ if __name__ == '__main__':
     res = []
     df = getData(C.STRFRQ[C.DATAFREQ])
     # df = prepareData(df)
-    ndf =df# normaliz(df)
+    ndf = normaliz(df)
     dfY=df[C.Y]
     for sn in SCENARIOS:
         #encoder.add(Dropout(0.5))
@@ -27,7 +27,7 @@ if __name__ == '__main__':
         #cost = model.train_on_batch([train_Xs[i][0:C.BATCH_SIZE] for i in range(len(train_Xs))], train_Y[0:C.BATCH_SIZE])
         #print(cost)
 
-        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=40, validation_data=(val_Xs, val_Y))
+        re = model.fit(train_Xs, train_Y, batch_size=C.BATCH_SIZE, nb_epoch=20, validation_data=(val_Xs, val_Y))
         res.append([C.SCENARIO,re.history])
 
     ResAnaysis(res)
