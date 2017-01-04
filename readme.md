@@ -78,7 +78,3 @@ exclude_GBP ![](results/exclude_GBP.png)
 exclude_EUR ![](results/exclude_EUR.png)
 
 exclude_JPY ![](results/exclude_JPY.png)
-
-exclude_AUD ![](results/exclude_AUD.png)
-
-exclude_CAD ![](results/exclude_CAD.png)
